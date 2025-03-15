@@ -6,7 +6,7 @@ configure_osx: true
 configure_dock: false
 dockitems_remove:
   - Safari
-	- Podcasts
+  - Podcasts
 	- 'App Store'
 	- Mail
 	- Maps
