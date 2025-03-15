@@ -7,19 +7,19 @@ configure_dock: false
 dockitems_remove:
   - Safari
   - Podcasts
-	- 'App Store'
-	- Mail
-	- Maps
-	- Photos
-	- Contacts
-	- Freeform
-	- TV
-	- Music
-	- News
-	- Keynote
-	- Numbers
-	- Pages
-	- 'iPhone Mirroring'
+  - 'App Store'
+  - Mail
+  - Maps
+  - Photos
+  - Contacts
+  - Freeform
+  - TV
+  - Music
+  - News
+  - Keynote
+  - Numbers
+  - Pages
+  - 'iPhone Mirroring'
 dockitems_persist: []
 # - name: "Notion"
 #   path: "/Applications/Notion.app/"
