@@ -36,18 +36,15 @@ dotfiles_repo: https://github.com/tkygit/dotfiles.git
 dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
 dotfiles_files:
-  - .zshrc
   - .gitignore
-  - .inputrc
   - .osx
-  - .vimrc
 
 homebrew_installed_packages:
-	- git
-	- gh
-	- node
-	- nvm
-	- pyenv
+  - git
+  - gh
+  - node
+  - nvm
+  - pyenv
   # - ansible
   # - autoconf
   # - bash-completion
