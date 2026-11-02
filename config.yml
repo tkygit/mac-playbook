@@ -45,6 +45,8 @@ homebrew_installed_packages:
   - node
   - nvm
   - pyenv
+  - awscli
+  - pandoc
   # - ansible
   # - autoconf
   # - bash-completion
@@ -83,13 +85,12 @@ homebrew_cask_apps:
   - spotify
   - visual-studio-code
   - vlc
-  - arc
   - postman
   - notion
-  - notion-calendar
   - scroll-reverser
-  - adobe-acrobat-reader
-  
+  - windows-app
+  - slack
+  - hiddenbar
   # - chromedriver
   # - docker
   # - dropbox
@@ -146,6 +147,42 @@ configure_sublime: false
 #   - "SublimeLinter-contrib-yamllint"
 #   - "TrailingSpaces"
 #   - "WordCount"
+
+# Generated with: code --list-extensions | sort -f
+configure_vscode: true
+vscode_extensions:
+  - 4ops.terraform
+  - amazonwebservices.aws-toolkit-vscode
+  - batisteo.vscode-django
+  - champgm.cloudformation-yaml-validator
+  - dbaeumer.vscode-eslint
+  - docker.docker
+  - esbenp.prettier-vscode
+  - github.vscode-pull-request-github
+  - hbenl.vscode-test-explorer
+  - jebbs.plantuml
+  - littlefoxteam.vscode-python-test-adapter
+  - mechatroner.rainbow-csv
+  - mermaidchart.vscode-mermaid-chart
+  - mohd-akram.vscode-html-format
+  - ms-azuretools.vscode-containers
+  - ms-azuretools.vscode-docker
+  - ms-dotnettools.upgrade-agent
+  - ms-dotnettools.vscode-dotnet-modernize
+  - ms-dotnettools.vscode-dotnet-runtime
+  - ms-playwright.playwright
+  - ms-python.black-formatter
+  - ms-python.debugpy
+  - ms-python.isort
+  - ms-python.python
+  - ms-python.vscode-pylance
+  - ms-python.vscode-python-envs
+  - ms-vscode-remote.remote-containers
+  - ms-vscode.test-adapter-converter
+  - orta.vscode-jest
+  - ritwickdey.liveserver
+  - tomoki1207.pdf
+  - yzane.markdown-pdf
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []

@@ -119,7 +119,12 @@ sublime_package_control:
   - "SublimeLinter"
   - "SublimeLinter-contrib-yamllint"
   - "TrailingSpaces"
-  - "WordCount"
+#   - "WordCount"
+
+# Set to 'true' to install VS Code extensions (requires the visual-studio-code cask).
+configure_vscode: false
+vscode_cli: "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+vscode_extensions: []
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
