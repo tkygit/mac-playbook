@@ -47,6 +47,11 @@ homebrew_installed_packages:
   - pyenv
   - awscli
   - pandoc
+  - curl
+  - jq
+  - yq
+  - openssl
+  - pulumi
   # - ansible
   # - autoconf
   # - bash-completion
