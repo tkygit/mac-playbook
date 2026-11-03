@@ -1,0 +1,48 @@
+---
+- name: Check whether Chrome is running.
+  command: pgrep -x "Google Chrome"
+  register: chrome_running
+  changed_when: false
+  failed_when: false
+
+- name: Refuse to modify profiles while Chrome is running.
+  fail:
+    msg: Quit Google Chrome before applying the chrome tag.
+  when: chrome_running.rc == 0
+
+- name: Load exported profile list.
+  set_fact:
+    chrome_profiles: "{{ lookup('file', playbook_dir + '/files/chrome/profiles.json') | from_json }}"
+
+- name: Ensure Chrome profile directories exist.
+  file:
+    path: "{{ chrome_user_data_dir }}/{{ item.dir }}"
+    state: directory
+    mode: '0700'
+  loop: "{{ chrome_profiles }}"
+
+- name: Copy bookmarks into profiles.
+  copy:
+    src: "{{ playbook_dir }}/files/chrome/profiles/{{ item.dir }}/Bookmarks"
+    dest: "{{ chrome_user_data_dir }}/{{ item.dir }}/Bookmarks"
+    mode: '0600'
+    force: "{{ chrome_overwrite_bookmarks }}"
+  loop: "{{ chrome_profiles }}"
+
+- name: Check for an existing Chrome Local State file.
+  stat:
+    path: "{{ chrome_user_data_dir }}/Local State"
+  register: chrome_local_state
+
+- name: Register profiles in Local State so Chrome lists them.
+  shell: |
+    set -euo pipefail
+    f="{{ chrome_user_data_dir }}/Local State"
+    [ -f "$f" ] || echo '{}' > "$f"
+    jq --argjson p '{{ chrome_profiles | to_json }}' '
+      .profile.info_cache = ((.profile.info_cache // {}) as $c
+        | reduce $p[] as $i ($c; .[$i.dir] = ((.[$i.dir] // {}) + {name: $i.name})))
+    ' "$f" > "$f.tmp" && mv "$f.tmp" "$f"
+  args:
+    executable: /bin/bash
+  changed_when: true

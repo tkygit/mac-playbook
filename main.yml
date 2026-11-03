@@ -50,6 +50,10 @@
       when: configure_vscode
       tags: ['vscode']
 
+    - import_tasks: tasks/chrome.yml
+      when: configure_chrome
+      tags: ['chrome']
+
     - name: Run post-provision task files in a block.
       tags: ['post']
       block:

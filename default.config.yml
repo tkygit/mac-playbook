@@ -123,6 +123,10 @@ sublime_package_control:
 
 # Set to 'true' to install VS Code extensions (requires the visual-studio-code cask).
 configure_vscode: false
+
+configure_chrome: false
+chrome_user_data_dir: "{{ ansible_env.HOME }}/Library/Application Support/Google/Chrome"
+chrome_overwrite_bookmarks: false
 vscode_cli: "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 vscode_extensions: []
 
